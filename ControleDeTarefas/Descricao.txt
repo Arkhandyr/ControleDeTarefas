@@ -1,0 +1,3 @@
+﻿Possibilidade de registrar novos contatos, visualizar, editar e excluir contatos existentes;
+O sistema não pode permitir o cadastro caso o e-mail ou o telefone estejam inválidos.
+A aplicação deverá possibilitar a visualização da lista e contatos agrupados por cargo.

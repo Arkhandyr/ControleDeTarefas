@@ -1,0 +1,100 @@
+06/22/2021 04:23:12	This log contains information about the import schema operation into project 'BancoDeDados.DBProject' on computer 'DESKTOP-B4U0GMF' by user 'Arkhandyr'.
+06/22/2021 04:23:12	Import of database schema has started.
+06/22/2021 04:23:13	Gathering error messages
+06/22/2021 04:23:13	Gathering cryptographic providers
+06/22/2021 04:23:13	Gathering credentials
+06/22/2021 04:23:13	Gathering logins
+06/22/2021 04:23:13	Gathering server roles
+06/22/2021 04:23:13	Gathering server role memberships
+06/22/2021 04:23:13	Gathering linked servers
+06/22/2021 04:23:13	Gathering linked server logins
+06/22/2021 04:23:13	Gathering routes
+06/22/2021 04:23:13	Gathering ddl triggers
+06/22/2021 04:23:13	Gathering encrypted and clr ddl triggers
+06/22/2021 04:23:13	Gathering event notifications
+06/22/2021 04:23:13	Gathering server audits
+06/22/2021 04:23:13	Gathering server audit specifications
+06/22/2021 04:23:13	Gathering event notifications
+06/22/2021 04:23:15	Gathering database credentials
+06/22/2021 04:23:15	Gathering database options
+06/22/2021 04:23:15	Gathering users
+06/22/2021 04:23:15	Gathering roles
+06/22/2021 04:23:15	Gathering application roles
+06/22/2021 04:23:15	Gathering role memberships
+06/22/2021 04:23:15	Gathering filegroups
+06/22/2021 04:23:15	Gathering files
+06/22/2021 04:23:15	Gathering full-text catalogs
+06/22/2021 04:23:15	Gathering assemblies
+06/22/2021 04:23:15	Gathering certificates
+06/22/2021 04:23:15	Gathering asymmetric keys
+06/22/2021 04:23:15	Gathering symmetric keys
+06/22/2021 04:23:15	Gathering encrypted symmetric keys
+06/22/2021 04:23:15	Gathering database encryption keys
+06/22/2021 04:23:15	Gathering schemas
+06/22/2021 04:23:15	Gathering XML schema collections
+06/22/2021 04:23:15	Gathering user-defined data types
+06/22/2021 04:23:15	Gathering user-defined types
+06/22/2021 04:23:15	Gathering table types
+06/22/2021 04:23:15	Gathering unique keys for table types
+06/22/2021 04:23:15	Gathering primary keys for table types
+06/22/2021 04:23:15	Gathering indexes for table types
+06/22/2021 04:23:15	Gathering check constraints for table types
+06/22/2021 04:23:15	Gathering default constraints for table types
+06/22/2021 04:23:15	Gathering partition functions
+06/22/2021 04:23:15	Gathering partition schemes
+06/22/2021 04:23:15	Gathering functions
+06/22/2021 04:23:15	Gathering encrypted functions
+06/22/2021 04:23:15	Gathering aggregates
+06/22/2021 04:23:15	Gathering procedures
+06/22/2021 04:23:15	Gathering encrypted procedures
+06/22/2021 04:23:15	Gathering tables
+06/22/2021 04:23:15	Gathering primary keys
+06/22/2021 04:23:15	Gathering unique constraints
+06/22/2021 04:23:15	Gathering foreign keys
+06/22/2021 04:23:15	Gathering default constraints
+06/22/2021 04:23:15	Gathering check constraints
+06/22/2021 04:23:15	Gathering views
+06/22/2021 04:23:15	Gathering encrypted views
+06/22/2021 04:23:15	Gathering indexes
+06/22/2021 04:23:15	Gathering statistics
+06/22/2021 04:23:15	Gathering full-text index stoplists
+06/22/2021 04:23:15	Gathering search property lists
+06/22/2021 04:23:15	Gathering search properties
+06/22/2021 04:23:15	Gathering full-text indexes
+06/22/2021 04:23:15	Gathering column store indexes
+06/22/2021 04:23:15	Gathering spatial indexes
+06/22/2021 04:23:15	Gathering XML indexes
+06/22/2021 04:23:15	Gathering Selective XML indexes
+06/22/2021 04:23:15	Gathering encrypted triggers
+06/22/2021 04:23:15	Gathering triggers
+06/22/2021 04:23:15	Gathering encrypted and clr ddl triggers
+06/22/2021 04:23:16	Gathering ddl triggers
+06/22/2021 04:23:16	Gathering synonyms
+06/22/2021 04:23:16	Gathering defaults
+06/22/2021 04:23:16	Gathering data constraint uddt bindings
+06/22/2021 04:23:16	Gathering rules
+06/22/2021 04:23:16	Gathering data constraint uddt bindings
+06/22/2021 04:23:16	Gathering message types
+06/22/2021 04:23:16	Gathering queues
+06/22/2021 04:23:16	Gathering contracts
+06/22/2021 04:23:16	Gathering services
+06/22/2021 04:23:16	Gathering routes
+06/22/2021 04:23:16	Gathering event notifications
+06/22/2021 04:23:16	Gathering remote service bindings
+06/22/2021 04:23:16	Gathering broker priorities
+06/22/2021 04:23:16	Gathering database audit specifications
+06/22/2021 04:23:16	Gathering signatures
+06/22/2021 04:23:16	Gathering data compression options
+06/22/2021 04:23:16	Gathering sequence types
+06/22/2021 04:23:16	Gathering security policies
+06/22/2021 04:23:16	Gather column encryption keys
+06/22/2021 04:23:16	Gathering column master keys
+06/22/2021 04:23:16	Gathering external data sources
+06/22/2021 04:23:16	Gathering external file formats
+06/22/2021 04:23:16	Gathering external tables
+06/22/2021 04:23:16	Gathering extended properties
+06/22/2021 04:23:16	Scanning project for duplicate elements
+06/22/2021 04:23:16	Finished duplicate element processing
+06/22/2021 04:23:16	Finished importing database.
+06/22/2021 04:23:16	A summary of the import was saved to the following location: C:\Users\Arkhandyr\source\repos\ControleDeTarefas\BancoDeDados.DBProject\Import Schema Logs\BancoDeDados.DBProje_20210622072312.log
+06/22/2021 04:23:16	Click Finish to continue...

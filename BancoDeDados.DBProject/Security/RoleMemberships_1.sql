@@ -1,0 +1,4 @@
+﻿
+GO
+ALTER SERVER ROLE [sysadmin] ADD MEMBER [DESKTOP-B4U0GMF\Arkhandyr];
+

@@ -1,0 +1,6 @@
+﻿ALTER SERVER ROLE [sysadmin] ADD MEMBER [DESKTOP-B4U0GMF\Arkhandyr];
+
+
+GO
+ALTER SERVER ROLE [sysadmin] ADD MEMBER [NT SERVICE\SQLWriter];
+

@@ -1,0 +1,7 @@
+C:\Users\Arkhandyr\source\repos\ControleDeTarefas\ControleDeTarefas\bin\Debug\ControleDeTarefas.exe.config
+C:\Users\Arkhandyr\source\repos\ControleDeTarefas\ControleDeTarefas\bin\Debug\ControleDeTarefas.exe
+C:\Users\Arkhandyr\source\repos\ControleDeTarefas\ControleDeTarefas\bin\Debug\ControleDeTarefas.pdb
+C:\Users\Arkhandyr\source\repos\ControleDeTarefas\ControleDeTarefas\obj\Debug\ControleDeTarefas.ClassLibrary.csproj.AssemblyReference.cache
+C:\Users\Arkhandyr\source\repos\ControleDeTarefas\ControleDeTarefas\obj\Debug\ControleDeTarefas.ClassLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Arkhandyr\source\repos\ControleDeTarefas\ControleDeTarefas\obj\Debug\ControleDeTarefas.exe
+C:\Users\Arkhandyr\source\repos\ControleDeTarefas\ControleDeTarefas\obj\Debug\ControleDeTarefas.pdb
