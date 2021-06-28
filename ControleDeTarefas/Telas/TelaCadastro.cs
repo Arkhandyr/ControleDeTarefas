@@ -40,13 +40,6 @@ namespace ControleDeTarefas.Telas
             }
         }
 
-        public bool VisualizarRegistros()
-        {
-            ConfigurarTela("Visualizando registros...");
-            Extensions.MostrarLista(controlador.VisualizarRegistros());
-            return true;
-        }
-
         public void InserirNovoRegistro()
         {
             ConfigurarTela("Inserindo um novo registro...");
@@ -62,6 +55,13 @@ namespace ControleDeTarefas.Telas
                 ApresentarMensagem(resultadoValidacao, TipoMensagem.Erro);
                 InserirNovoRegistro();
             }
+        }
+
+        public bool VisualizarRegistros()
+        {
+            ConfigurarTela("Visualizando registros...");
+            Extensions.MostrarLista(controlador.VisualizarRegistros());
+            return true;
         }
 
         public void EditarRegistro()

@@ -1,3 +1,6 @@
-﻿Possibilidade de registrar novos contatos, visualizar, editar e excluir contatos existentes;
-O sistema não pode permitir o cadastro caso o e-mail ou o telefone estejam inválidos.
-A aplicação deverá possibilitar a visualização da lista e contatos agrupados por cargo.
+﻿Controlar seus Compromissos tendo uma visibilidade semanal e diária. 
+
+A aplicação deverá disponibilizar a possibilidade de visualizar os compromissos que já passaram e que vão acontecer de forma separada. 
+
+Para os compromissos futuros, deverá ser disponibilizado a possibilidade de filtra-los por período.
+É muito importante aparecer o nome do contato na visualização do compromissos.

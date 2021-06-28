@@ -64,6 +64,7 @@ namespace ControleDeTarefas.Telas
             return new Contato(nome, email, telefone, empresa, cargo);
         }
 
+        #region Private methods
         private bool ValidarEmail(string email)
         {
             return Regex.IsMatch
@@ -83,5 +84,6 @@ namespace ControleDeTarefas.Telas
                RegexOptions.IgnoreCase
             );
         }
+        #endregion
     }
 }

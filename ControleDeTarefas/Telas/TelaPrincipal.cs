@@ -12,11 +12,13 @@ namespace ControleDeTarefas.Telas
     {
         private readonly Controlador<Tarefa> controladorTarefa = new Controlador<Tarefa>();
         private readonly Controlador<Contato> controladorContato = new Controlador<Contato>();
+        private readonly Controlador<Compromisso> controladorCompromisso = new Controlador<Compromisso>();
 
         public TelaPrincipal() : base("Tela Principal")
         {
-            PopularTarefas();
-            PopularContatos();
+            //PopularTarefas();
+            //PopularContatos();
+            PopularCompromissos();
 
             while (true)
             {
@@ -29,7 +31,27 @@ namespace ControleDeTarefas.Telas
                 tb.Menu();
             }
         }
+        public TelaBase ObterTela()
+        {
+            Menu();
+            switch (Console.ReadLine())
+            {
+                case "1": return new TelaTarefas(controladorTarefa);
+                case "2": return new TelaContatos(controladorContato);
+                case "3": return new TelaCompromissos(controladorCompromisso);
+                default: return null;
+            }
+        }
+        public override void Menu()
+        {
+            ConfigurarTela("Escolha uma opção: ");
+            Console.WriteLine("1. Cadastro de Tarefas");
+            Console.WriteLine("2. Cadastro de Contatos");
+            Console.WriteLine("3. Cadastro de Compromissos\n");
+            Console.Write("Opção: ");
+        }
 
+        #region Private methods
         private void PopularTarefas()
         {
             Controlador<Tarefa>.ResetarTabelaTarefas();
@@ -74,23 +96,21 @@ namespace ControleDeTarefas.Telas
             controladorContato.InserirNovoRegistro(c6);
             controladorContato.InserirNovoRegistro(c7);
         }
+        private void PopularCompromissos()
+        {
+            Controlador<Compromisso>.ResetarTabelaCompromissos();
+            Compromisso c1 = new Compromisso("Aula", "NDD", new DateTime(2021, 10, 8, 10, 00, 00), new DateTime(2021, 10, 8, 12, 00, 00), controladorCompromisso.SelecionarContatoPorId(4));
+            Compromisso c2 = new Compromisso("Palestra", "Meet", new DateTime(2021, 10, 15, 8, 00, 00), new DateTime(2021, 10, 15, 12, 00, 00), controladorCompromisso.SelecionarContatoPorId(6));
+            Compromisso c3 = new Compromisso("Atividade", "Casa", new DateTime(2021, 10, 1, 10, 00, 00), new DateTime(2021, 10, 1, 12, 00, 00), controladorCompromisso.SelecionarContatoPorId(2));
+            Compromisso c4 = new Compromisso("Visita", "NDD", new DateTime(2021, 2, 10, 8, 00, 00), new DateTime(2021, 2, 10, 12, 00, 00), controladorCompromisso.SelecionarContatoPorId(5));
+            Compromisso c5 = new Compromisso("Aula", "NDD", new DateTime(2021, 2, 23, 10, 00, 00), new DateTime(2021, 2, 23, 12, 00, 00), controladorCompromisso.SelecionarContatoPorId(4));
 
-        public TelaBase ObterTela()
-        {
-            Menu();
-            switch (Console.ReadLine())
-            {
-                case "1": return new TelaTarefas(controladorTarefa);
-                case "2": return new TelaContatos(controladorContato);
-                default: return null;
-            }
+            controladorCompromisso.InserirNovoRegistro(c1);
+            controladorCompromisso.InserirNovoRegistro(c2);
+            controladorCompromisso.InserirNovoRegistro(c3);
+            controladorCompromisso.InserirNovoRegistro(c4);
+            controladorCompromisso.InserirNovoRegistro(c5);
         }
-        public override void Menu()
-        {
-            ConfigurarTela("Escolha uma opção: ");
-            Console.WriteLine("1. Cadastro de Tarefas\n");
-            Console.WriteLine("2. Cadastro de Contatos\n");
-            Console.Write("Opção: ");
-        }
+        #endregion
     }
 }

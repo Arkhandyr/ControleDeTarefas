@@ -44,15 +44,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controladores\Controlador.cs" />
-    <Compile Include="Domínio\Contato.cs" />
-    <Compile Include="Domínio\Prioridade.cs" />
+    <Compile Include="Dominio\Compromisso.cs" />
+    <Compile Include="Dominio\Contato.cs" />
+    <Compile Include="Dominio\Prioridade.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Domínio\Tarefa.cs" />
-    <Compile Include="Domínio\EntidadeBase.cs" />
+    <Compile Include="Dominio\Tarefa.cs" />
+    <Compile Include="Dominio\EntidadeBase.cs" />
     <Compile Include="Telas\ICadastravel.cs" />
     <Compile Include="Telas\TelaBase.cs" />
     <Compile Include="Telas\TelaCadastro.cs" />
+    <Compile Include="Telas\TelaCompromissos.cs" />
     <Compile Include="Telas\TelaContatos.cs" />
     <Compile Include="Telas\TelaPrincipal.cs" />
     <Compile Include="Telas\TelaTarefas.cs" />

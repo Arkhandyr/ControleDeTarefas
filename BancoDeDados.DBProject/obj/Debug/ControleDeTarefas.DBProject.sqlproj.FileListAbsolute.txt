@@ -3,3 +3,4 @@ C:\Users\Arkhandyr\source\repos\ControleDeTarefas\BancoDeDados.DBProject\bin\Deb
 C:\Users\Arkhandyr\source\repos\ControleDeTarefas\BancoDeDados.DBProject\bin\Debug\BancoDeDados.DBProject.pdb
 C:\Users\Arkhandyr\source\repos\ControleDeTarefas\BancoDeDados.DBProject\obj\Debug\BancoDeDados.DBProject.dll
 C:\Users\Arkhandyr\source\repos\ControleDeTarefas\BancoDeDados.DBProject\obj\Debug\BancoDeDados.DBProject.pdb
+C:\Users\Arkhandyr\source\repos\ControleDeTarefas\BancoDeDados.DBProject\obj\Debug\ControleDeTarefas.DBProject.sqlproj.AssemblyReference.cache
