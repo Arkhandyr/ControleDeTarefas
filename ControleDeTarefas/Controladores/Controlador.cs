@@ -10,21 +10,47 @@ namespace ControleDeTarefas.Controladores
     public class Controlador<T> where T : EntidadeBase
     {
         public List<T> Registros { get => VisualizarRegistros(); }
-        private const string sqlSelecionarContatoPorId =
-            @"SELECT 
-                [ID],
-                [NOME],
-                [EMAIL],
-                [TELEFONE],
-                [EMPRESA],
-                [CARGO]
-             FROM
-                [TBCONTATOS]
-             WHERE 
-                [ID] = @ID";
 
         public Controlador()
         {
+        }
+
+        public Contato SelecionarContatoPorId(int id)
+        {
+            InicializarBanco(out SqlConnection conexaoComBanco, out SqlCommand comandoSelecao);
+
+            string query = @"SELECT 
+                                [ID],
+                                [NOME],
+                                [EMAIL],
+                                [TELEFONE],
+                                [EMPRESA],
+                                [CARGO]
+                             FROM
+                                [TBCONTATOS]
+                             WHERE 
+                                [ID] = @ID"; ;
+            comandoSelecao.CommandText = query;
+            comandoSelecao.Parameters.AddWithValue("ID", id);
+            SqlDataReader leitorRegistros = comandoSelecao.ExecuteReader();
+
+            List<Contato> contatos = new List<Contato>();
+
+            while (leitorRegistros.Read())
+            {
+                List<object> parametros = ObterParametros(leitorRegistros);
+                var idContato = parametros.First();
+                parametros.Remove(idContato);
+
+                Contato contato = new Contato(parametros[0].ToString(), parametros[1].ToString(), parametros[2].ToString(), parametros[3].ToString(), parametros[4].ToString())
+                {
+                    ID = Convert.ToInt32(id)
+                };
+                contatos.Add(contato);
+            }
+
+            conexaoComBanco.Close();
+            return contatos[0];
         }
 
         #region CRUD Methods
@@ -268,11 +294,21 @@ namespace ControleDeTarefas.Controladores
         {
             InicializarBanco(out SqlConnection conexaoComBanco, out SqlCommand comandoSelecao);
 
-            string query = $@"SELECT TBCOMPROMISSOS.[ID], TBCOMPROMISSOS.[ASSUNTO], TBCOMPROMISSOS.[LOCAL], 
-                        TBCOMPROMISSOS.[DATAINICIO], TBCOMPROMISSOS.[DATAFIM], TBCONTATOS.[NOME] FROM TBCOMPROMISSOS 
-                        LEFT JOIN TBCONTATOS ON TBCOMPROMISSOS.[CONTATO] = TBCONTATOS.[ID]
-                        WHERE MONTH(TBCOMPROMISSOS.[DATAFIM]) = MONTH(GETDATE()) AND TBCOMPROMISSOS.[DATAFIM] > GETDATE()  
-                        ORDER BY [DATAINICIO] ASC";
+            string query = $@"SELECT 
+                                TBCOMPROMISSOS.[ID], 
+                                TBCOMPROMISSOS.[ASSUNTO], 
+                                TBCOMPROMISSOS.[LOCAL], 
+                                TBCOMPROMISSOS.[DATAINICIO], 
+                                TBCOMPROMISSOS.[DATAFIM], 
+                                TBCONTATOS.[NOME] 
+                            FROM 
+                                TBCOMPROMISSOS 
+                            LEFT JOIN 
+                                TBCONTATOS ON TBCOMPROMISSOS.[CONTATO] = TBCONTATOS.[ID]
+                            WHERE 
+                                MONTH(TBCOMPROMISSOS.[DATAFIM]) = MONTH(GETDATE()) AND TBCOMPROMISSOS.[DATAFIM] > GETDATE()  
+                            ORDER BY 
+                                [DATAINICIO] ASC";
 
             comandoSelecao.CommandText = query;
             SqlDataReader leitorRegistros = comandoSelecao.ExecuteReader();
@@ -387,7 +423,6 @@ namespace ControleDeTarefas.Controladores
         }
         #endregion
 
-
         #region Reset methods
         public static void ResetarTabelaTarefas()
         {
@@ -423,36 +458,7 @@ namespace ControleDeTarefas.Controladores
         }
         #endregion
 
-        public Contato SelecionarContatoPorId(int id)
-        {
-            InicializarBanco(out SqlConnection conexaoComBanco, out SqlCommand comandoSelecao);
-
-            string query = sqlSelecionarContatoPorId;
-            comandoSelecao.CommandText = query;
-            comandoSelecao.Parameters.AddWithValue("ID", id);
-            SqlDataReader leitorRegistros = comandoSelecao.ExecuteReader();
-
-            List<Contato> contatos = new List<Contato>();
-
-            while (leitorRegistros.Read())
-            {
-                List<object> parametros = ObterParametros(leitorRegistros);
-                var idContato = parametros.First();
-                parametros.Remove(idContato);
-
-                Contato contato = new Contato(parametros[0].ToString(), parametros[1].ToString(), parametros[2].ToString(), parametros[3].ToString(), parametros[4].ToString())
-                {
-                    ID = Convert.ToInt32(id)
-                };
-                contatos.Add(contato);
-            }
-
-            conexaoComBanco.Close();
-            return contatos[0];
-        }
-
-        #region Private methods
-
+        #region Private Methods
         private static void InicializarBanco(out SqlConnection conexaoComBanco, out SqlCommand comando)
         {
             string enderecoDBTarefas =
