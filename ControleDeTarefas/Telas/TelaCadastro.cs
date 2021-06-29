@@ -59,9 +59,45 @@ namespace ControleDeTarefas.Telas
 
         public bool VisualizarRegistros()
         {
-            ConfigurarTela("Visualizando registros...");
-            Extensions.MostrarLista(controlador.VisualizarRegistros());
-            return true;
+            List<T> registros = controlador.VisualizarRegistros();
+            if (registros[0].GetType().Equals(typeof(Compromisso)))
+            {
+                String tipoVisualizacao = "";
+                Console.Clear();
+                ConfigurarTela("Escolha uma opção: ");
+                Console.WriteLine("1. Visualizar todos os compromissos");
+                Console.WriteLine("2. Visualizar compromissos passsados");
+                Console.WriteLine("3. Visualizar compromissos futuros");
+                Console.WriteLine("4. Visualizar compromissos do dia");
+                Console.WriteLine("5. Visualizar compromissos do mes");
+
+                Console.WriteLine("Digite S para Voltar\n");
+                Console.Write("Opção: ");
+
+                switch (Console.ReadLine())
+                {
+                    case "1": { tipoVisualizacao = "Todos"; break; }
+                    case "2": { tipoVisualizacao = "Futuro"; break; }
+                    case "3": { tipoVisualizacao = "Passado"; break; }
+                    case "4": { tipoVisualizacao = "Dia"; break; }
+                    case "5": { tipoVisualizacao = "Mes"; break; }
+
+                }
+                ConfigurarTela("Visualizando registros...");
+                if (tipoVisualizacao == "Todos") Extensions.MostrarLista(controlador.VisualizarRegistros());
+                if (tipoVisualizacao == "Futuro") Extensions.MostrarLista(controlador.VisualizarCompromissosFuturos());
+                if (tipoVisualizacao == "Passado") Extensions.MostrarLista(controlador.VisualizarCompromissosPassados());
+                if (tipoVisualizacao == "Dia") Extensions.MostrarLista(controlador.VisualizarCompromissosFuturosDoDia());
+                if (tipoVisualizacao == "Mes") Extensions.MostrarLista(controlador.VisualizarCompromissosFuturosDoMes());
+                return true;
+            }
+            else
+            {
+                ConfigurarTela("Visualizando registros...");
+                Extensions.MostrarLista(controlador.VisualizarRegistros());
+                return true;
+            }
+            
         }
 
         public void EditarRegistro()

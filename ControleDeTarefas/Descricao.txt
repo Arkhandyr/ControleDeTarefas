@@ -1,6 +1,3 @@
 ﻿Controlar seus Compromissos tendo uma visibilidade semanal e diária. 
 
-A aplicação deverá disponibilizar a possibilidade de visualizar os compromissos que já passaram e que vão acontecer de forma separada. 
-
 Para os compromissos futuros, deverá ser disponibilizado a possibilidade de filtra-los por período.
-É muito importante aparecer o nome do contato na visualização do compromissos.

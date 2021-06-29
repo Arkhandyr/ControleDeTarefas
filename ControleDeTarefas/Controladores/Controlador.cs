@@ -174,6 +174,126 @@ namespace ControleDeTarefas.Controladores
             return registros;
         }
 
+        public List<T> VisualizarCompromissosPassados()
+        {
+            InicializarBanco(out SqlConnection conexaoComBanco, out SqlCommand comandoSelecao);
+
+            string query = $@"SELECT TBCOMPROMISSOS.[ID], TBCOMPROMISSOS.[ASSUNTO], TBCOMPROMISSOS.[LOCAL], 
+                        TBCOMPROMISSOS.[DATAINICIO], TBCOMPROMISSOS.[DATAFIM], TBCONTATOS.[NOME] FROM TBCOMPROMISSOS 
+                        LEFT JOIN TBCONTATOS ON TBCOMPROMISSOS.[CONTATO] = TBCONTATOS.[ID]
+                        WHERE TBCOMPROMISSOS.[DATAFIM] < GETDATE() 
+                        ORDER BY [DATAINICIO] ASC";
+
+            comandoSelecao.CommandText = query;
+            SqlDataReader leitorRegistros = comandoSelecao.ExecuteReader();
+
+            List<T> registros = new List<T>();
+
+            while (leitorRegistros.Read())
+            {
+                List<object> parametros = ObterParametros(leitorRegistros);
+                var id = parametros.First();
+                parametros.Remove(id);
+
+                T registro = (T)Activator.CreateInstance(typeof(T), parametros.ToArray());
+                registro.ID = Convert.ToInt32(id);
+                registros.Add(registro);
+            }
+
+            conexaoComBanco.Close();
+            return registros;
+        }
+
+        public List<T> VisualizarCompromissosFuturos()
+        {
+            InicializarBanco(out SqlConnection conexaoComBanco, out SqlCommand comandoSelecao);
+
+            string query = $@"SELECT TBCOMPROMISSOS.[ID], TBCOMPROMISSOS.[ASSUNTO], TBCOMPROMISSOS.[LOCAL], 
+                        TBCOMPROMISSOS.[DATAINICIO], TBCOMPROMISSOS.[DATAFIM], TBCONTATOS.[NOME] FROM TBCOMPROMISSOS 
+                        LEFT JOIN TBCONTATOS ON TBCOMPROMISSOS.[CONTATO] = TBCONTATOS.[ID]
+                        WHERE TBCOMPROMISSOS.[DATAFIM] > GETDATE() 
+                        ORDER BY [DATAINICIO] ASC";
+
+            comandoSelecao.CommandText = query;
+            SqlDataReader leitorRegistros = comandoSelecao.ExecuteReader();
+
+            List<T> registros = new List<T>();
+
+            while (leitorRegistros.Read())
+            {
+                List<object> parametros = ObterParametros(leitorRegistros);
+                var id = parametros.First();
+                parametros.Remove(id);
+
+                T registro = (T)Activator.CreateInstance(typeof(T), parametros.ToArray());
+                registro.ID = Convert.ToInt32(id);
+                registros.Add(registro);
+            }
+
+            conexaoComBanco.Close();
+            return registros;
+        }
+
+        public List<T> VisualizarCompromissosFuturosDoDia()
+        {
+            InicializarBanco(out SqlConnection conexaoComBanco, out SqlCommand comandoSelecao);
+
+            string query = $@"SELECT TBCOMPROMISSOS.[ID], TBCOMPROMISSOS.[ASSUNTO], TBCOMPROMISSOS.[LOCAL], 
+                        TBCOMPROMISSOS.[DATAINICIO], TBCOMPROMISSOS.[DATAFIM], TBCONTATOS.[NOME] FROM TBCOMPROMISSOS 
+                        LEFT JOIN TBCONTATOS ON TBCOMPROMISSOS.[CONTATO] = TBCONTATOS.[ID]
+                        WHERE DAY(TBCOMPROMISSOS.[DATAFIM]) = DAY(GETDATE()) AND TBCOMPROMISSOS.[DATAFIM] > GETDATE() 
+                        ORDER BY [DATAINICIO] ASC";
+
+            comandoSelecao.CommandText = query;
+            SqlDataReader leitorRegistros = comandoSelecao.ExecuteReader();
+
+            List<T> registros = new List<T>();
+
+            while (leitorRegistros.Read())
+            {
+                List<object> parametros = ObterParametros(leitorRegistros);
+                var id = parametros.First();
+                parametros.Remove(id);
+
+                T registro = (T)Activator.CreateInstance(typeof(T), parametros.ToArray());
+                registro.ID = Convert.ToInt32(id);
+                registros.Add(registro);
+            }
+
+            conexaoComBanco.Close();
+            return registros;
+        }
+
+        public List<T> VisualizarCompromissosFuturosDoMes()
+        {
+            InicializarBanco(out SqlConnection conexaoComBanco, out SqlCommand comandoSelecao);
+
+            string query = $@"SELECT TBCOMPROMISSOS.[ID], TBCOMPROMISSOS.[ASSUNTO], TBCOMPROMISSOS.[LOCAL], 
+                        TBCOMPROMISSOS.[DATAINICIO], TBCOMPROMISSOS.[DATAFIM], TBCONTATOS.[NOME] FROM TBCOMPROMISSOS 
+                        LEFT JOIN TBCONTATOS ON TBCOMPROMISSOS.[CONTATO] = TBCONTATOS.[ID]
+                        WHERE MONTH(TBCOMPROMISSOS.[DATAFIM]) = MONTH(GETDATE()) AND TBCOMPROMISSOS.[DATAFIM] > GETDATE()  
+                        ORDER BY [DATAINICIO] ASC";
+
+            comandoSelecao.CommandText = query;
+            SqlDataReader leitorRegistros = comandoSelecao.ExecuteReader();
+
+            List<T> registros = new List<T>();
+
+            while (leitorRegistros.Read())
+            {
+                List<object> parametros = ObterParametros(leitorRegistros);
+                var id = parametros.First();
+                parametros.Remove(id);
+
+                T registro = (T)Activator.CreateInstance(typeof(T), parametros.ToArray());
+                registro.ID = Convert.ToInt32(id);
+                registros.Add(registro);
+            }
+
+            conexaoComBanco.Close();
+            return registros;
+        }
+
         public void EditarRegistro(int id, T registro)
         {
             InicializarBanco(out SqlConnection conexaoComBanco, out SqlCommand comandoAtualizacao);
